@@ -1,6 +1,6 @@
 package me.dmba.jiranav.data
 
-import me.dmba.jiranav.data.model.Project
+import me.dmba.jiranav.data.model.Board
 import me.dmba.jiranav.data.model.Task
 import me.dmba.jiranav.util.randomId
 import javax.inject.Inject
@@ -8,12 +8,12 @@ import javax.inject.Inject
 /**
  * Created by dmba on 6/13/18.
  */
-class FakeProjectDataSource @Inject constructor() : ProjectDataSource {
+class FakeBoardDataSource @Inject constructor() : BoardDataSource {
 
-    private val fakeProject: Project by lazy {
-        Project(
+    private val fakeProject: Board by lazy {
+        Board(
             id = randomId(),
-            tasks = (0..13).map {
+            columns = (0..13).map {
                 Task(
                     id = randomId(),
                     title = "#$it Complete Jira nav challenge"
@@ -22,6 +22,6 @@ class FakeProjectDataSource @Inject constructor() : ProjectDataSource {
         )
     }
 
-    override fun getProject(): Project = fakeProject
+    override fun getBoard(): Board = fakeProject
 
 }

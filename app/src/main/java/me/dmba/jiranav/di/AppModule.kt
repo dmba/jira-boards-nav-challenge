@@ -2,8 +2,8 @@ package me.dmba.jiranav.di
 
 import dagger.Binds
 import dagger.Module
-import me.dmba.jiranav.data.FakeProjectDataSource
-import me.dmba.jiranav.data.ProjectDataSource
+import me.dmba.jiranav.data.FakeBoardDataSource
+import me.dmba.jiranav.data.BoardDataSource
 
 /**
  * Created by dmba on 6/13/18.
@@ -21,6 +21,6 @@ interface AppModuleBindings {
 
     @Binds
     @ForApplication
-    fun bindsDataSource(dataSource: FakeProjectDataSource): ProjectDataSource
+    fun bindsDataSource(dataSource: FakeBoardDataSource): BoardDataSource
 
 }

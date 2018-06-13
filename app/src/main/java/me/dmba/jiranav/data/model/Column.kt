@@ -1,11 +1,13 @@
 package me.dmba.jiranav.data.model
 
 /**
- * Created by dmba on 6/13/18.
+ * Created by dmba on 6/14/18.
  */
-data class Project(
+data class Column(
 
     val id: String,
+
+    val name: String,
 
     val tasks: List<Task>
 
