@@ -1,28 +1,37 @@
-package me.dmba.jiranav.ui.adapter
+package me.dmba.jiranav.ui.adapter.viewholder
 
-import android.support.v7.widget.RecyclerView.ViewHolder
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
+import com.google.auto.factory.AutoFactory
+import com.google.auto.factory.Provided
 import me.dmba.jiranav.R
 import me.dmba.jiranav.data.model.Task
-import javax.inject.Inject
+import me.dmba.jiranav.ui.adapter.viewholder.factory.TaskViewHolderFactory
 
 /**
  * Created by dmba on 6/13/18.
  */
-class TaskViewHolder @Inject constructor(
 
-    inflater: LayoutInflater,
+const val TYPE_NORMAL = 0
+
+@AutoFactory(
+    implementing = [
+        TaskViewHolderFactory::class
+    ]
+)
+class TaskViewHolderNormal(
+
+    @Provided inflater: LayoutInflater,
 
     parent: ViewGroup
 
-) : ViewHolder(inflater.inflate(R.layout.card_task_item, parent, false)) {
+) : TaskViewHolder(R.layout.card_task_item, inflater, parent) {
 
     private val taskTitle by lazy { itemView.findViewById(R.id.taskTitle) as TextView }
     private val taskDescription by lazy { itemView.findViewById(R.id.taskDescription) as TextView }
 
-    fun bindModel(task: Task) {
+    override fun bind(task: Task) {
         taskTitle.text = task.title
         taskDescription.text = task.id
     }

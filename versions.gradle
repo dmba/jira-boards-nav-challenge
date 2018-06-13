@@ -34,7 +34,8 @@ versions += [
     support: '27.1.0',
     design : '1.1.1',
     picasso: '2.71828',
-    dagger : '2.16'
+    dagger : '2.16',
+    auto_factory: '1.0-beta5'
 ]
 
 /**

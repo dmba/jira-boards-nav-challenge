@@ -37,8 +37,10 @@ dependencies {
     implementation "com.android.support.constraint:constraint-layout:$versions.design"
 
     implementation "com.squareup.picasso:picasso:$versions.picasso"
-
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
+
+    kapt "com.google.auto.factory:auto-factory:$versions.auto_factory"
+    provided "com.episode6.hackit.auto.factory:auto-factory-annotations:$versions.auto_factory"
 
     implementation(
         "com.google.dagger:dagger:$versions.dagger",
