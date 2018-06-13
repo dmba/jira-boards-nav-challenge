@@ -1,10 +1,9 @@
 package me.dmba.jiranav.ui.adapter.viewholder
 
-import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import com.google.auto.factory.AutoFactory
-import com.google.auto.factory.Provided
+import kotlinx.android.synthetic.main.card_task_item.view.*
 import me.dmba.jiranav.R
 import me.dmba.jiranav.data.model.Task
 import me.dmba.jiranav.ui.adapter.viewholder.factory.TaskViewHolderFactory
@@ -13,7 +12,7 @@ import me.dmba.jiranav.ui.adapter.viewholder.factory.TaskViewHolderFactory
  * Created by dmba on 6/13/18.
  */
 
-const val TYPE_NORMAL = 0
+const val TYPE_TASK_NORMAL = 0
 
 @AutoFactory(
     implementing = [
@@ -22,16 +21,11 @@ const val TYPE_NORMAL = 0
 )
 class TaskViewHolderNormal(
 
-    @Provided inflater: LayoutInflater,
-
     parent: ViewGroup
 
-) : TaskViewHolder(R.layout.card_task_item, inflater, parent) {
+) : TaskViewHolder(R.layout.card_task_item, parent) {
 
-    private val taskTitle by lazy { itemView.findViewById(R.id.taskTitle) as TextView }
-    private val taskDescription by lazy { itemView.findViewById(R.id.taskDescription) as TextView }
-
-    override fun bind(task: Task) {
+    override fun bind(task: Task): View = itemView.apply {
         taskTitle.text = task.title
         taskDescription.text = task.id
     }
