@@ -3,7 +3,7 @@ package me.dmba.jiranav.ui
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.LinearLayoutManager.HORIZONTAL
-import android.support.v7.widget.PagerSnapHelper
+import cz.intik.overflowindicator.SimpleSnapHelper
 import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import me.dmba.jiranav.R
@@ -35,7 +35,8 @@ class MainActivity : DaggerAppCompatActivity() {
         layoutManager = LinearLayoutManager(context, HORIZONTAL, false)
         setHasFixedSize(true)
         addItemDecoration(OffsetItemDecoration(8))
-        PagerSnapHelper().attachToRecyclerView(this)
+        SimpleSnapHelper(pagerIndicator).attachToRecyclerView(this)
+        pagerIndicator.attachToRecyclerView(this)
     }
 
 }
