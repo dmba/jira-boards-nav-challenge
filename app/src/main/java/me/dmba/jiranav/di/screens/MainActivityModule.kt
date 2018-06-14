@@ -1,5 +1,6 @@
 package me.dmba.jiranav.di.screens
 
+import android.support.v7.widget.RecyclerView.RecycledViewPool
 import android.view.LayoutInflater
 import dagger.Binds
 import dagger.Module
@@ -31,6 +32,11 @@ object MainActivityModule {
     @JvmStatic
     @ForActivity
     fun provideLayoutInflater(mainActivity: MainActivity): LayoutInflater = mainActivity.layoutInflater
+
+    @Provides
+    @JvmStatic
+    @ForActivity
+    fun provideRecyclerViewPool(): RecycledViewPool = RecycledViewPool()
 
 }
 

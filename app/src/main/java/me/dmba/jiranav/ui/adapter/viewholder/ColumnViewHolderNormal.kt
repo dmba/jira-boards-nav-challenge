@@ -1,6 +1,7 @@
 package me.dmba.jiranav.ui.adapter.viewholder
 
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView.RecycledViewPool
 import android.view.ViewGroup
 import com.google.auto.factory.AutoFactory
 import com.google.auto.factory.Provided
@@ -26,6 +27,8 @@ class ColumnViewHolderNormal(
 
     @Provided private val tasksAdapter: TasksAdapter,
 
+    @Provided private val sharedRecycledViewPool: RecycledViewPool,
+
     parent: ViewGroup
 
 ) : ColumnViewHolder(R.layout.card_column_item, parent) {
@@ -33,6 +36,7 @@ class ColumnViewHolderNormal(
     init {
         itemView.recyclerView.apply {
             adapter = tasksAdapter
+            recycledViewPool = sharedRecycledViewPool
             layoutManager = LinearLayoutManager(context)
             setHasFixedSize(true)
             addItemDecoration(OffsetItemDecoration(8))
