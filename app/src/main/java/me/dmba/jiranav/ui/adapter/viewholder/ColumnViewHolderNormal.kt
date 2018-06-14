@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView.RecycledViewPool
 import android.view.ViewGroup
 import com.google.auto.factory.AutoFactory
 import com.google.auto.factory.Provided
-import kotlinx.android.synthetic.main.activity_main.view.*
+import kotlinx.android.synthetic.main.card_column_item.view.*
 import me.dmba.jiranav.R
 import me.dmba.jiranav.data.model.Column
 import me.dmba.jiranav.ui.adapter.TasksAdapter
@@ -44,6 +44,7 @@ class ColumnViewHolderNormal(
     }
 
     override fun bind(column: Column) {
+        itemView.columnTitle.text = column.title
         tasksAdapter.updateTasks(column.tasks)
     }
 
