@@ -1,9 +1,9 @@
 package me.dmba.jiranav.ui.adapter.viewholder
 
 /**
- * TaskType
+ * CardType
  */
-object TaskType {
+object CardType {
     const val NORMAL = 0
 }
 

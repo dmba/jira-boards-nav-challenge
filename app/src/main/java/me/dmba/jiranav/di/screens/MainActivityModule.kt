@@ -39,9 +39,9 @@ interface MainActivityModuleBindings {
 
     @Binds
     @IntoMap
-    @IntKey(TaskType.NORMAL)
+    @IntKey(CardType.NORMAL)
     @ForActivity
-    fun bindsNormalTaskFactory(factory: TaskViewHolderNormalFactory): TaskViewHolderFactory
+    fun bindsNormalCardFactory(factory: CardViewHolderNormalFactory): CardViewHolderFactory
 
     @Binds
     @IntoMap

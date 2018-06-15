@@ -3,31 +3,29 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="8dp"
+    android:layout_height="?listPreferredItemHeight"
     app:cardCornerRadius="4dp"
 >
+
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="8dp"
     >
 
         <TextView
-            android:id="@+id/columnTitle"
+            android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:textStyle="bold"
-            android:textSize="18sp"
         />
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/columnTitle"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"
+            android:layout_below="@id/title"
+            android:textColor="@android:color/darker_gray"
         />
 
     </RelativeLayout>

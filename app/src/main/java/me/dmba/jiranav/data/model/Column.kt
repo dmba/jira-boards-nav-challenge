@@ -9,6 +9,6 @@ data class Column(
 
     val title: String,
 
-    val tasks: List<Task>
+    val cards: List<Card>
 
 )

@@ -3,8 +3,8 @@ package me.dmba.jiranav.ui.adapter.viewholder
 import me.dmba.jiranav.base.adapter.BaseViewHolder
 import me.dmba.jiranav.base.adapter.BaseViewHolderFactories
 import me.dmba.jiranav.base.adapter.BaseViewHolderFactory
+import me.dmba.jiranav.data.model.Card
 import me.dmba.jiranav.data.model.Column
-import me.dmba.jiranav.data.model.Task
 
 /**
  * ColumnViewHolder
@@ -22,16 +22,16 @@ interface ColumnViewHolderFactory : BaseViewHolderFactory<ColumnViewHolder>
 typealias ColumnViewHolderFactories = BaseViewHolderFactories<ColumnViewHolderFactory>
 
 /**
- * TaskViewHolder
+ * CardViewHolder
  */
-typealias TaskViewHolder = BaseViewHolder<Task>
+typealias CardViewHolder = BaseViewHolder<Card>
 
 /**
- * TaskViewHolderFactory
+ * CardViewHolderFactory
  */
-interface TaskViewHolderFactory : BaseViewHolderFactory<TaskViewHolder>
+interface CardViewHolderFactory : BaseViewHolderFactory<CardViewHolder>
 
 /**
- * TaskViewHolderFactories
+ * CardViewHolderFactories
  */
-typealias TaskViewHolderFactories = BaseViewHolderFactories<TaskViewHolderFactory>
+typealias CardViewHolderFactories = BaseViewHolderFactories<CardViewHolderFactory>
