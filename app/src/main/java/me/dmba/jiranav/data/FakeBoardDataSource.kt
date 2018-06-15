@@ -1,9 +1,10 @@
 package me.dmba.jiranav.data
 
+import io.reactivex.Observable
+import me.dmba.jiranav.base.util.randomId
 import me.dmba.jiranav.data.model.Board
 import me.dmba.jiranav.data.model.Column
 import me.dmba.jiranav.data.model.Task
-import me.dmba.jiranav.util.randomId
 import javax.inject.Inject
 
 /**
@@ -63,6 +64,8 @@ class FakeBoardDataSource @Inject constructor() : BoardDataSource {
         )
     }
 
-    override fun getBoard(): Board = fakeBoard
+    override fun getBoard(): Observable<Board> = Observable.just(fakeBoard)
+
+    override fun getBoardColumns(): Observable<List<Column>> = getBoard().map { it.columns }
 
 }
