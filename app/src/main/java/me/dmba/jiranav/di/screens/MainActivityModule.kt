@@ -9,13 +9,7 @@ import dagger.multibindings.IntKey
 import dagger.multibindings.IntoMap
 import me.dmba.jiranav.di.ForActivity
 import me.dmba.jiranav.ui.MainActivity
-import me.dmba.jiranav.ui.adapter.viewholder.ColumnViewHolderNormalFactory
-import me.dmba.jiranav.ui.adapter.viewholder.TYPE_COLUMN_NORMAL
-import me.dmba.jiranav.ui.adapter.viewholder.TYPE_TASK_NORMAL
-import me.dmba.jiranav.ui.adapter.viewholder.TaskViewHolderNormalFactory
-import me.dmba.jiranav.ui.adapter.viewholder.factory.ColumnViewHolderFactory
-import me.dmba.jiranav.ui.adapter.viewholder.factory.TaskViewHolderFactory
-
+import me.dmba.jiranav.ui.adapter.viewholder.*
 
 /**
  * Created by dmba on 6/13/18.
@@ -45,13 +39,13 @@ interface MainActivityModuleBindings {
 
     @Binds
     @IntoMap
-    @IntKey(TYPE_TASK_NORMAL)
+    @IntKey(TaskType.NORMAL)
     @ForActivity
     fun bindsNormalTaskFactory(factory: TaskViewHolderNormalFactory): TaskViewHolderFactory
 
     @Binds
     @IntoMap
-    @IntKey(TYPE_COLUMN_NORMAL)
+    @IntKey(ColumnType.NORMAL)
     @ForActivity
     fun bindsNormalColumnFactory(factory: ColumnViewHolderNormalFactory): ColumnViewHolderFactory
 

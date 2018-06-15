@@ -7,17 +7,13 @@ import com.google.auto.factory.AutoFactory
 import com.google.auto.factory.Provided
 import kotlinx.android.synthetic.main.card_column_item.view.*
 import me.dmba.jiranav.R
+import me.dmba.jiranav.base.decoration.OffsetItemDecoration
 import me.dmba.jiranav.data.model.Column
 import me.dmba.jiranav.ui.adapter.TasksAdapter
-import me.dmba.jiranav.ui.adapter.viewholder.factory.ColumnViewHolderFactory
-import me.dmba.jiranav.util.OffsetItemDecoration
 
 /**
  * Created by dmba on 6/14/18.
  */
-
-const val TYPE_COLUMN_NORMAL = 0
-
 @AutoFactory(
     implementing = [
         ColumnViewHolderFactory::class
@@ -43,9 +39,9 @@ class ColumnViewHolderNormal(
         }
     }
 
-    override fun bind(column: Column) {
-        itemView.columnTitle.text = column.title
-        tasksAdapter.updateTasks(column.tasks)
+    override fun bind(model: Column) {
+        itemView.columnTitle.text = model.title
+        tasksAdapter.update(model.tasks)
     }
 
 }

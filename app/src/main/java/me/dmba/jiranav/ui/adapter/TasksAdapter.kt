@@ -1,11 +1,9 @@
 package me.dmba.jiranav.ui.adapter
 
-import android.support.v7.widget.RecyclerView.Adapter
-import android.view.ViewGroup
+import me.dmba.jiranav.base.adapter.BaseAdapter
 import me.dmba.jiranav.data.model.Task
-import me.dmba.jiranav.ui.adapter.viewholder.TYPE_TASK_NORMAL
-import me.dmba.jiranav.ui.adapter.viewholder.TaskViewHolder
-import me.dmba.jiranav.ui.adapter.viewholder.factory.TaskViewHolderFactories
+import me.dmba.jiranav.ui.adapter.viewholder.TaskType
+import me.dmba.jiranav.ui.adapter.viewholder.TaskViewHolderFactories
 import javax.inject.Inject
 
 /**
@@ -13,28 +11,10 @@ import javax.inject.Inject
  */
 class TasksAdapter @Inject constructor(
 
-    private val viewHolderFactories: TaskViewHolderFactories
+    factories: TaskViewHolderFactories
 
-) : Adapter<TaskViewHolder>() {
+) : BaseAdapter<Task>(factories) {
 
-    private val tasks: MutableList<Task> = mutableListOf()
-
-    override fun getItemCount(): Int = tasks.size
-
-    override fun getItemViewType(position: Int): Int = TYPE_TASK_NORMAL
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
-        return viewHolderFactories[viewType]!!.createViewHolder(parent)
-    }
-
-    override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
-        holder.bind(tasks[position])
-    }
-
-    fun updateTasks(newTasks: List<Task>) {
-        tasks.clear()
-        tasks.addAll(newTasks)
-        notifyDataSetChanged()
-    }
+    override fun getItemViewType(position: Int) = TaskType.NORMAL
 
 }
