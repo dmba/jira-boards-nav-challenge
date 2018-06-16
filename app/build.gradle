@@ -3,6 +3,10 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
+kapt {
+    correctErrorTypes = true
+}
+
 androidExtensions {
     experimental = true
 }
@@ -31,24 +35,32 @@ android {
 }
 
 dependencies {
-    implementation "com.android.support:cardview-v7:$versions.support"
-    implementation "com.android.support:appcompat-v7:$versions.support"
-    implementation "com.android.support:recyclerview-v7:$versions.support"
-    implementation "com.android.support.constraint:constraint-layout:$versions.design"
-
-    implementation "com.squareup.picasso:picasso:$versions.picasso"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
 
-    implementation("cz.intik:overflow-pager-indicator:1.2") {
-        exclude group: 'com.android.support'
-    }
-
-    compileOnly "com.episode6.hackit.auto.factory:auto-factory-annotations:$versions.auto_factory"
+    implementation(
+        "com.android.support:cardview-v7:$versions.support",
+        "com.android.support:appcompat-v7:$versions.support",
+        "com.android.support:recyclerview-v7:$versions.support",
+        "com.android.support.constraint:constraint-layout:$versions.design"
+    )
 
     implementation(
         "com.google.dagger:dagger:$versions.dagger",
         "com.google.dagger:dagger-android-support:$versions.dagger"
     )
+
+    implementation(
+        "io.reactivex.rxjava2:rxjava:$versions.rxjava",
+        "io.reactivex.rxjava2:rxandroid:$versions.rxjava"
+    )
+
+    implementation "com.squareup.picasso:picasso:$versions.picasso"
+
+    implementation("cz.intik:overflow-pager-indicator:$versions.pager_indicator") {
+        exclude group: 'com.android.support'
+    }
+
+    implementation "com.episode6.hackit.auto.factory:auto-factory-annotations:$versions.auto_factory"
 
     kapt(
         "com.google.auto.factory:auto-factory:$versions.auto_factory",
