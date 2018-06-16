@@ -4,14 +4,24 @@ import android.support.annotation.LayoutRes
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import io.reactivex.Observable
+import io.reactivex.android.schedulers.AndroidSchedulers.mainThread
 import io.reactivex.disposables.Disposable
 import io.reactivex.internal.disposables.DisposableContainer
+import io.reactivex.schedulers.Schedulers.io
 
 /**
  * Used to inflate the view from parent view group
  */
 fun ViewGroup.inflate(@LayoutRes layoutRes: Int, attachToRoot: Boolean = false): View {
     return LayoutInflater.from(context).inflate(layoutRes, this, attachToRoot)
+}
+
+/**
+ * Observable operator for app default subscribe/observe operations
+ */
+fun <T> Observable<T>.withDefaults(): Observable<T> {
+    return subscribeOn(io()).observeOn(mainThread())
 }
 
 /**

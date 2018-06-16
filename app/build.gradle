@@ -50,8 +50,8 @@ dependencies {
     )
 
     implementation(
-        "io.reactivex.rxjava2:rxandroid:$versions.rxjava",
-        "io.reactivex.rxjava2:rxjava:$versions.rxjava"
+        "io.reactivex.rxjava2:rxjava:$versions.rxjava",
+        "io.reactivex.rxjava2:rxandroid:$versions.rxjava"
     )
 
     implementation "com.squareup.picasso:picasso:$versions.picasso"
