@@ -6,6 +6,7 @@ import com.google.auto.factory.Provided
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.view_item_card.view.*
 import me.dmba.jiranav.R
+import me.dmba.jiranav.base.recycler.ItemTouchHelperViewHolder
 import me.dmba.jiranav.data.model.Card
 
 /**
@@ -22,7 +23,7 @@ class CardViewHolderNormal(
 
     parent: ViewGroup
 
-) : CardViewHolder(R.layout.view_item_card, parent) {
+) : CardViewHolder(R.layout.view_item_card, parent), ItemTouchHelperViewHolder {
 
     override fun bind(model: Card) {
         itemView.apply {
@@ -33,6 +34,12 @@ class CardViewHolderNormal(
                 .load(model.userLogoUrl)
                 .into(userLogo)
         }
+    }
+
+    override fun onItemSelected() {
+    }
+
+    override fun onItemClear() {
     }
 
 }
