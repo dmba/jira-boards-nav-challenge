@@ -7,6 +7,8 @@ data class Card(
 
     val id: String,
 
-    val title: String
+    val title: String,
+
+    val userLogoUrl: String
 
 )
