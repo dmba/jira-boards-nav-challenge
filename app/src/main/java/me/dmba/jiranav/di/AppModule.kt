@@ -1,7 +1,12 @@
 package me.dmba.jiranav.di
 
+import android.content.Context
+import com.squareup.picasso.Picasso
+import com.squareup.picasso.Picasso.Builder
 import dagger.Binds
 import dagger.Module
+import dagger.Provides
+import me.dmba.jiranav.App
 import me.dmba.jiranav.data.BoardDataSource
 import me.dmba.jiranav.data.FakeBoardDataSource
 
@@ -14,10 +19,21 @@ import me.dmba.jiranav.data.FakeBoardDataSource
         AppModuleBindings::class
     ]
 )
-object AppModule
+object AppModule {
+
+    @Provides
+    @JvmStatic
+    @ForApplication
+    fun providePicasso(context: Context): Picasso = Builder(context).build()
+
+}
 
 @Module
 interface AppModuleBindings {
+
+    @Binds
+    @ForApplication
+    fun bindsContext(app: App): Context
 
     @Binds
     @ForApplication

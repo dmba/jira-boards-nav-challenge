@@ -9,6 +9,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers.mainThread
 import io.reactivex.disposables.Disposable
 import io.reactivex.internal.disposables.DisposableContainer
 import io.reactivex.schedulers.Schedulers.io
+import java.security.MessageDigest
 
 /**
  * Used to inflate the view from parent view group
@@ -29,4 +30,10 @@ fun <T> Observable<T>.withDefaults(): Observable<T> {
  */
 operator fun DisposableContainer.plusAssign(disposable: Disposable) {
     add(disposable)
+}
+
+fun String.md5(): String {
+    val md = MessageDigest.getInstance("MD5")
+    val digested = md.digest(toByteArray())
+    return digested.joinToString("") { String.format("%02x", it) }
 }

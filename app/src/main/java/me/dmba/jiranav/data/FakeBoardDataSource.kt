@@ -1,6 +1,7 @@
 package me.dmba.jiranav.data
 
 import io.reactivex.Observable
+import me.dmba.jiranav.base.extensions.md5
 import me.dmba.jiranav.base.util.randomId
 import me.dmba.jiranav.data.model.Board
 import me.dmba.jiranav.data.model.Card
@@ -12,6 +13,8 @@ import javax.inject.Inject
  */
 class FakeBoardDataSource @Inject constructor() : BoardDataSource {
 
+    private val identiconsApiUrl = "http://identicon-1132.appspot.com"
+
     private val fakeColumns: List<Column> by lazy {
         listOf(
             Column(
@@ -20,7 +23,8 @@ class FakeBoardDataSource @Inject constructor() : BoardDataSource {
                 cards = (0..7).map {
                     Card(
                         id = randomId(),
-                        title = "#$it [To Do] Complete Jira nav challenge"
+                        title = "#$it [To Do] Complete Jira nav challenge",
+                        userLogoUrl = "$identiconsApiUrl/${randomId().md5()}"
                     )
                 }
             ),
@@ -30,7 +34,8 @@ class FakeBoardDataSource @Inject constructor() : BoardDataSource {
                 cards = (0..4).map {
                     Card(
                         id = randomId(),
-                        title = "#$it [In Progress] Complete Jira nav challenge"
+                        title = "#$it [In Progress] Complete Jira nav challenge",
+                        userLogoUrl = "$identiconsApiUrl/${randomId().md5()}"
                     )
                 }
             ),
@@ -40,7 +45,8 @@ class FakeBoardDataSource @Inject constructor() : BoardDataSource {
                 cards = (0..13).map {
                     Card(
                         id = randomId(),
-                        title = "#$it [Verify] Complete Jira nav challenge"
+                        title = "#$it [Verify] Complete Jira nav challenge",
+                        userLogoUrl = "$identiconsApiUrl/${randomId().md5()}"
                     )
                 }
             ),
@@ -50,7 +56,8 @@ class FakeBoardDataSource @Inject constructor() : BoardDataSource {
                 cards = (0..5).map {
                     Card(
                         id = randomId(),
-                        title = "#$it [Done] Complete Jira nav challenge"
+                        title = "#$it [Done] Complete Jira nav challenge",
+                        userLogoUrl = "$identiconsApiUrl/${randomId().md5()}"
                     )
                 }
             )
