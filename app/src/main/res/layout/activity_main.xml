@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="me.dmba.jiranav.ui.MainActivity"
 >
     <FrameLayout
@@ -20,13 +20,17 @@
         android:layout_marginTop="80dp"
     />
 
-    <cz.intik.overflowindicator.OverflowPagerIndicator
+    <com.rbrooks.indefinitepagerindicator.IndefinitePagerIndicator
         android:id="@+id/pagerIndicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="8dp"
+        app:dotRadius="4dp"
+        app:selectedDotRadius="5.5dp"
+        app:dotColor="#ABABAC"
+        app:selectedDotColor="#5E5D5E"
     />
 
 </RelativeLayout>
