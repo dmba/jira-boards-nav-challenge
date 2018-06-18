@@ -37,7 +37,7 @@ versions += [
     dagger         : '2.16',
     rxjava         : '2.0.2',
     auto_factory   : '1.0-beta5',
-    pager_indicator: '1.2'
+    pager_indicator: '1.0.9'
 ]
 
 /**
